@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estuvisión | Tu Óptica de Confianza</title>
+    <style>
+        /* --- ESTILOS GENERALES Y COLORES --- */
+        :root {
+            --color-negro-abs: #111111; /* Negro principal de tu marca */
+            --color-fondo-hero: #1a1a1a; /* Negro suavizado para el bloque principal */
+            --color-gris-bloque: #f9f9f9; /* Gris suave para romper el blanco */
+            --color-texto: #333333;
+            --color-blanco: #ffffff;
+            --border-fino: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--color-texto);
+            line-height: 1.6;
+            background-color: var(--color-blanco);
+        }
+
+        /* --- ENCABEZADO Y LOGO --- */
+        header {
+            background-color: var(--color-negro-abs);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Corrección del logo pequeño: Añadido fondo blanco sutil para perfecta visibilidad */
+        .logo-img {
+            height: 40px; 
+            width: 40px;
+            object-fit: contain;
+            background-color: var(--color-blanco);
+            padding: 4px;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            flex-shrink: 0; /* Evita que el logo se deforme en pantallas muy estrechas */
+        }
+
+        .logo-texto {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--color-blanco);
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #cccccc;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+            white-space: nowrap; /* Evita que los enlaces del menú se partan en dos líneas */
+        }
+
+        nav a:hover {
+            color: var(--color-blanco);
+        }
+
+        /* --- SECCIÓN PRINCIPAL (HERO OSCURO PROFESIONAL) --- */
+        .hero {
+            background-color: var(--color-fondo-hero);
+            background-image: radial-gradient(circle at 70% 50%, #262626 0%, var(--color-fondo-hero) 70%);
+            padding: 90px 20px;
+            border-bottom: 4px solid var(--color-negro-abs);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-texto {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            color: var(--color-blanco);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #b3b3b3;
+            font-weight: 300;
+        }
+
+        .hero-logo-zona {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-logo-zona img {
+            max-width: 100%; /* Hace que la imagen del logo se adapte al ancho de la pantalla */
+            max-height: 260px;
+            height: auto;
+            width: auto;
+            background-color: var(--color-blanco); 
+            padding: 20px;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* --- SECCIONES --- */
+        section {
+            padding: 90px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            font-size: 32px;
+            color: var(--color-negro-abs);
+            margin-bottom: 50px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .titulo-seccion::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-negro-abs);
+            margin: 12px auto 0 auto;
+        }
+
+        /* --- SERVICIOS --- */
+        .seccion-servicios-bg {
+            background-color: var(--color-gris-bloque);
+            border-top: 1px solid var(--border-fino);
+            border-bottom: 1px solid var(--border-fino);
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .servicio-card {
+            background-color: var(--color-blanco);
+            padding: 40px 30px;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid var(--border-fino);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .servicio-card h3 {
+            margin-bottom: 15px;
+            color: var(--color-negro-abs);
+            font-size: 22px;
+        }
+
+        /* --- CONTACTO Y MAPA --- */
+        .contacto-contenedor {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .info-contacto h3 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: var(--color-negro-abs);
+        }
+
+        .info-contacto p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mapa-box {
+            width: 100%;
+            height: 380px;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid var(--border-fino);
+        }
+
+        .mapa-box iframe {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* --- PIE DE PÁGINA Y REDES --- */
+        footer {
+            background-color: var(--color-negro-abs);
+            color: var(--color-blanco);
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 14px;
+        }
+
+        .social-section {
+            margin-bottom: 25px;
+        }
+
+        .social-section p {
+            color: #b3b3b3;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .btn-instagram {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: transparent;
+            color: var(--color-blanco);
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid var(--color-blanco);
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-instagram:hover {
+            background-color: var(--color-blanco);
+            color: var(--color-negro-abs);
+        }
+
+        .copyright {
+            color: #777777;
+            font-size: 13px;
+            margin-top: 20px;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+        }
+
+        /* ==========================================
+           MÓVILES Y TABLETS (Diseño Dinámico/Responsive)
+           ========================================== */
+        @media (max-width: 900px) {
+            .hero-container {
+                gap: 30px;
+            }
+            .hero h1 {
+                font-size: 38px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 10px;
+            }
+            
+            nav ul {
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+                background-image: none; /* Simplifica el degradado en móviles para mejorar rendimiento */
+            }
+
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 35px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .hero-logo-zona img {
+                max-height: 200px;
+                padding: 15px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .titulo-seccion {
+                font-size: 28px;
+                margin-bottom: 35px;
+            }
+
+            .contacto-contenedor {
+                gap: 30px;
+            }
+
+            .mapa-box {
+                height: 300px; /* Reduce un poco la altura del mapa para que sea más fácil hacer scroll con el dedo */
+            }
+        }
+
+        /* Optimización extra para pantallas muy pequeñas (smartphones pequeños) */
+        @media (max-width: 400px) {
+            .logo-texto {
+                font-size: 19px;
+                letter-spacing: 1px;
+            }
+            nav ul {
+                gap: 15px;
+            }
+            nav a {
+                font-size: 14px;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="estu.png" alt="Logo Estuvisión" class="logo-img">
+                <span class="logo-texto">ESTUVISIÓN</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero" id="inicio">
+        <div class="hero-container">
+            <div class="hero-texto">
+                <h1>Cuidamos de tu Salud Visual</h1>
+                <p>En Estuvisión nos encargamos de que mires al mundo con la mejor claridad. Profesionales comprometidos con tus ojos.</p>
+            </div>
+            <div class="hero-logo-zona">
+                <img src="estu.png" alt="Estuvisión Logotipo">
+            </div>
+        </div>
+    </div>
+
+    <div class="seccion-servicios-bg">
+        <section id="servicios">
+            <h2 class="titulo-seccion">Nuestros Servicios</h2>
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <h3>Graduación de la Vista</h3>
+                    <p>Exámenes visuales completos y personalizados mediante equipos de precisión para garantizar tu salud ocular.</p>
+                </div>
+                <div class="servicio-card">
+                    <h3>Lentes de Contacto</h3>
+                    <p>Adaptación de lentillas de todo tipo (diarias, mensuales, progresivas) buscando siempre tu comodidad.</p>
+                </div>
+                <div class="servicio-card">
+                    <h3>Gafas Graduadas y de Sol</h3>
+                    <p>Asesoramiento estético y técnico para elegir la montura y los cristales que mejor se adapten a tu estilo de vida.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section id="contacto">
+        <h2 class="titulo-seccion">Contacto y Ubicación</h2>
+        <div class="contacto-contenedor">
+            
+            <div class="info-contacto">
+                <h3>Visítanos en la Óptica</h3>
+                <p><strong>📍 Dirección:</strong> Av. del Mar, Centro Comercial B5-B6, 11170 Medina-Sidonia, Cádiz</p>
+                <p><strong>📞 Teléfono:</strong> 633 24 10 79</p>
+                <p><strong>✉️ Email:</strong> estuvision@gmail.com</p>
+                <br>
+                <h3>Horario</h3>
+                <p>Lunes a Viernes: 10:00 – 14:00 y 17:00 – 20:30</p>
+                <p>Sábados: 10:00 – 13:30</p>
+            </div>
+
+            <div class="mapa-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2448.400699700175!2d-5.9296790999999995!3d36.461773400000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0c4db73dfc2abb%3A0xdafd5f38630f4dc7!2zw5NQVElDQSBFU1RVVklTScOTTg!5e1!3m2!1ses!2ses!4v1779688986353!5m2!1ses!2ses" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-section">
+            <p>Ofertas y promociones en nuestras redes sociales</p>
+            <a href="https://www.instagram.com/estuvision/" target="_blank" class="btn-instagram">Instagram @estuvision</a>
+        </div>
+        <div class="copyright">
+            <p>© 2026 Estuvisión. Todos los derechos reservados.<br>Cuidando de tu mirada.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
