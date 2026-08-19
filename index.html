@@ -454,7 +454,31 @@
                 font-size: 28px;
             }
         }
-    </style>
+   
+ /* --- ESTILOS PARA LAS NUEVAS IMÁGENES --- */
+        .galeria-optica {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px; /* Separación con el título de servicios */
+        }
+
+        .galeria-optica img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Recorta la imagen para que encaje sin deformarse */
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .servicio-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 20px; /* Separa la foto del título del servicio */
+        }
+ </style>
 </head>
 <body>
 
@@ -486,26 +510,48 @@
         </div>
     </div>
 
+    < <!-- SECCIÓN DE LA ÓPTICA Y SERVICIOS -->
     <div class="seccion-servicios-bg">
-        <section id="servicios">
+        <section>
+            
+            <!-- 1. FOTOS DE LA ÓPTICA (ENCIMA DE NUESTROS SERVICIOS) -->
+            <div class="galeria-optica">
+                <!-- Sustituye 'optica-1.jpg', etc. con los nombres reales de tus archivos -->
+                <img src="optica-fachada.jpg" alt="Fachada de la Óptica Estuvisión">
+                <img src="optica-interior.jpg" alt="Interior y exposición de gafas Estuvisión">
+                <img src="optica-gabinete.jpg" alt="Gabinete de revisión Estuvisión">
+            </div>
+
+            <!-- TÍTULO PRINCIPAL DE SERVICIOS -->
             <h2 class="titulo-seccion">Nuestros Servicios</h2>
+
+            <!-- 2. CUADRÍCULA DE SERVICIOS CON IMÁGENES -->
             <div class="servicios-grid">
+                
+                <!-- CARD SERVICIO 1 -->
                 <div class="servicio-card">
-                    <h3>Graduación de la Vista</h3>
-                    <p>Exámenes visuales completos y personalizados mediante equipos de precisión para garantizar tu salud ocular.</p>
+                    <img src="servicio-revision.jpg" alt="Examen visual" class="servicio-img">
+                    <h3>Examen Visual</h3>
+                    <p>Revisión completa de tu salud ocular con tecnología avanzada.</p>
                 </div>
+
+                <!-- CARD SERVICIO 2 -->
                 <div class="servicio-card">
+                    <img src="servicio-gafas.jpg" alt="Gafas graduadas" class="servicio-img">
+                    <h3>Gafas Graduadas</h3>
+                    <p>Amplia variedad de monturas de marca y cristales de alta calidad.</p>
+                </div>
+
+                <!-- CARD SERVICIO 3 -->
+                <div class="servicio-card">
+                    <img src="servicio-lentillas.jpg" alt="Lentes de contacto" class="servicio-img">
                     <h3>Lentes de Contacto</h3>
-                    <p>Adaptación de lentillas de todo tipo (diarias, mensuales, progresivas) buscando siempre tu comodidad.</p>
+                    <p>Adaptación personalizada de lentillas para tu comodidad diaria.</p>
                 </div>
-                <div class="servicio-card">
-                    <h3>Gafas Graduadas y de Sol</h3>
-                    <p>Asesoramiento estético y técnico para elegir la montura y los cristales que mejor se adapten a tu estilo de vida.</p>
-                </div>
+
             </div>
         </section>
     </div>
-
     <section id="contacto">
         <h2 class="titulo-seccion">Contacto y Ubicación</h2>
         <div class="contacto-contenedor">
